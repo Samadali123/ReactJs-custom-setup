@@ -9,13 +9,13 @@ exports.home = (req, res) => {
 
 }
 
-exports.createuser = async(req, res, next) => {
+exports.createuser = (req, res, next) => {
     try {
-        const user = new User(req.body);
-        await user.save();
-        res.status(200).json({ success: true, message: "user is created succesfully", user });
+        const newuser = new User(req.body);
+        newuser.save();
+        res.status(200).json({ success: true, message: "user is created succesfully", newuser });
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        res.status(500).json({ success: false, message: "There was an error in creating a user" })
     }
 
 }

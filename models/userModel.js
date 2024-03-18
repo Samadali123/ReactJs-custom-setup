@@ -1,5 +1,5 @@
 const mongoose = require(`mongoose`)
-const userSchema = new mongoose.Schema({
+const userModel = new mongoose.Schema({
 
     username: {
         type: String,
@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
         match: [
             /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,15}$/,
             "Invalid password format."
+
         ]
 
 
@@ -29,4 +30,4 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 
-module.exports = mongoose.model("user", userSchema)
+module.exports = mongoose.model("User", userModel)
